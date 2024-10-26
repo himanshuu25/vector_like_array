@@ -1,0 +1,162 @@
+// array use static memeory allocation (fixed size),memory allocate at compile time and memory is created in the stack area (memory)
+// vector use dynamically memory allocation (automatic resize),memory allocate at run time and memory is created in the heap area(memory)
+
+
+//................................................................ 
+
+#include<iostream>
+#include<vector>// is in the stl (standard template libraray) 
+using namespace std;
+int main(){
+    vector<int>v={1,2,3};// size is 3 (it dynamicaly update the size) 
+    for(int val:v){ // called for each loop ( first val variable store v means 1,then cout val and so on ) it direct access the value not the index
+        cout<<val;
+    }
+} 
+
+//....................................................
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int>v(5,1);// first argument is the size of vector and other is value of all 5 container(variable)
+    for(int val:v){
+        cout<<val;
+    }
+}
+
+/* 
+vector function :-
+size()
+push_back()
+pop_back()
+front()
+back()
+at()
+*/
+
+//................................size function........................
+
+#include<iostream>
+#include<vector>// is in the stl (standard template libraray) 
+using namespace std;
+int main(){
+    vector<int>v={1,2,3,1};
+    for(int val:v){ // called for each loop ( first val variable store v means 1,then cout val and so on ) it direct access the value not the index
+        cout<<val<<endl;
+    }
+    cout<<"the size is  "<<v.size();
+} 
+
+//................................push_back function........................
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int>vac={};
+    cout<<vac.size()<<endl;
+    vac.push_back(25);
+    cout<<vac.size()<<endl;
+    // cout<<vac;               we can't directly print the vector variable only with the help of for each loop
+    for(int val:vac){
+        cout<<val;
+    }
+    
+}
+
+//................................pop_back function........................
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int>vac={};
+    cout<<vac.size()<<endl;
+    vac.push_back(25);// at a time only one value is pushed in vector vac.push_back(25,52,63)=>error
+    vac.push_back(35);
+    vac.push_back(45);
+    vac.push_back(55);
+    vac.push_back(65);
+
+    cout<<vac.size()<<endl;
+    // cout<<vac;               we can't directly print the vector variable only with the help of for each loop
+    for(int val:vac){
+        cout<<val<<" ";
+    }  
+    cout<<endl;
+    vac.pop_back();
+    vac.pop_back();
+    cout<<vac.size()<<endl;
+    // cout<<vac;               we can't directly print the vector variable only with the help of for each loop
+    for(int val:vac){
+        cout<<val<<" ";
+    }
+    
+}
+
+//................................front function........................
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int>vac={1,2,3,4,5,6,7,8,9};
+    cout<<vac.front();// it gives the (zero index ) first element 
+}
+
+//................................back function........................
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int>vac={1,2,3,4,5,6,7,8,9};
+    cout<<vac.back();// it gives the (n-1 index ) last element 
+}
+
+//.........................................print unique value..........................
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    int a=0;
+    vector<int>vac={1,2,1,2,4,4,5,5};
+    for(int i=0;i<vac.size();i++){
+        int c=0;
+        for(int j=0;j<vac.size();j++){
+            if(i!=j){
+                if(vac[i]==vac[j]){
+                    c++;
+                }
+            }
+        }
+        if(c==0){
+            cout<<vac[i];
+            a++;
+        }
+
+    }
+    if(a==0){
+        cout<<"unique element is not present";
+    }
+}
+
+//.........................................print unique value..........................
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    int uni=0;
+    vector<int>vac={1,2,1,2,4,4,5,5,9};
+    for(int val:vac){
+        uni=uni^val;
+    }
+    if(uni==0){
+        cout<<"unique element is not present";
+    }
+    else
+    cout<<uni;
+}
